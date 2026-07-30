@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symbiosis Institute of Technology | Student Grading System</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="logo-badge" aria-hidden="true">
+          <span class="logo-text">SIT</span>
+        </div>
+        <div class="header-titles">
+          <h1 class="header-title">Symbiosis Institute of Technology</h1>
+          <p class="header-subtitle">Student Academic Evaluation Portal</p>
+        </div>
+      </div>
+      <div class="session-badge">
+        <span class="session-label">Academic Session</span>
+        <span class="session-year">2026-27</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main-content">
+    <div class="page-wrap">
+
+      <!-- Intro strip -->
+      <section class="intro-strip">
+        <h2>Grade Entry &amp; Result Generation</h2>
+        <p>Fill in the student and examination details below to compute the grade, GPA and result status.</p>
+      </section>
+
+      <!-- ============================================================
+           FORM CARD
+      ============================================================ -->
+      <section class="form-card" aria-label="Student Evaluation Form">
+        <form id="gradingForm" novalidate>
+
+          <!-- ---------- Student Information ---------- -->
+          <fieldset class="form-section">
+            <legend>Student Information</legend>
+            <div class="form-grid">
+
+              <div class="field-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" name="studentName" placeholder="e.g. Aarav Sharma" autocomplete="off" />
+                <span class="error-msg" id="err-studentName"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="prnNumber">PRN Number</label>
+                <input type="text" id="prnNumber" name="prnNumber" placeholder="11-digit PRN" maxlength="11" autocomplete="off" />
+                <span class="error-msg" id="err-prnNumber"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="emailAddress">Email Address</label>
+                <input type="text" id="emailAddress" name="emailAddress" placeholder="student@sitnagpur.edu.in" autocomplete="off" />
+                <span class="error-msg" id="err-emailAddress"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" name="mobileNumber" placeholder="10-digit mobile number" maxlength="10" autocomplete="off" />
+                <span class="error-msg" id="err-mobileNumber"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="department">Department</label>
+                <select id="department" name="department">
+                  <option value="" disabled selected>Select Department</option>
+                  <option value="Computer Engineering">Computer Engineering</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option value="Electronics Engineering">Electronics Engineering</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+                <span class="error-msg" id="err-department"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="semester">Semester</label>
+                <select id="semester" name="semester">
+                  <option value="" disabled selected>Select Semester</option>
+                  <option value="Semester I">Semester I</option>
+                  <option value="Semester II">Semester II</option>
+                  <option value="Semester III">Semester III</option>
+                  <option value="Semester IV">Semester IV</option>
+                  <option value="Semester V">Semester V</option>
+                  <option value="Semester VI">Semester VI</option>
+                  <option value="Semester VII">Semester VII</option>
+                  <option value="Semester VIII">Semester VIII</option>
+                </select>
+                <span class="error-msg" id="err-semester"></span>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <!-- ---------- Examination Information ---------- -->
+          <fieldset class="form-section">
+            <legend>Examination Information</legend>
+            <div class="form-grid">
+
+              <div class="field-group">
+                <label for="subjectName">Subject Name</label>
+                <input type="text" id="subjectName" name="subjectName" placeholder="e.g. Data Structures" autocomplete="off" />
+                <span class="error-msg" id="err-subjectName"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="facultyName">Faculty Name</label>
+                <input type="text" id="facultyName" name="facultyName" placeholder="e.g. Dr. Priya Deshmukh" autocomplete="off" />
+                <span class="error-msg" id="err-facultyName"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="examType">Examination Type</label>
+                <select id="examType" name="examType">
+                  <option value="" disabled selected>Select Examination Type</option>
+                  <option value="Internal Assessment I">Internal Assessment I</option>
+                  <option value="Internal Assessment II">Internal Assessment II</option>
+                  <option value="Mid Semester Examination">Mid Semester Examination</option>
+                  <option value="End Semester Examination">End Semester Examination</option>
+                  <option value="Practical Examination">Practical Examination</option>
+                </select>
+                <span class="error-msg" id="err-examType"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="maxMarks">Maximum Marks</label>
+                <input type="text" id="maxMarks" name="maxMarks" value="100" readonly />
+              </div>
+
+              <div class="field-group">
+                <label for="marksObtained">Marks Obtained</label>
+                <input type="text" id="marksObtained" name="marksObtained" placeholder="0 - 100" autocomplete="off" />
+                <span class="error-msg" id="err-marksObtained"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="academicYear">Academic Year</label>
+                <input type="text" id="academicYear" name="academicYear" value="2026-2027" readonly />
+              </div>
+
+            </div>
+          </fieldset>
+
+          <!-- ---------- Actions ---------- -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="generateBtn">
+              <span>Generate Result</span>
+            </button>
+            <button type="reset" class="btn btn-secondary" id="resetBtn">
+              <span>Reset Form</span>
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       RESULT MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="result-modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close result">&times;</button>
+
+      <!-- Printable area starts here -->
+      <div id="printArea" class="print-area">
+
+        <div class="modal-header">
+          <div class="modal-logo-badge" aria-hidden="true">SIT</div>
+          <div>
+            <h2 id="modalHeading">Symbiosis Institute of Technology</h2>
+            <p>Official Grade Report</p>
+          </div>
+          <span class="status-badge" id="statusBadge">PASS</span>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="result-label">Student Name</span>
+              <span class="result-value" id="resStudentName">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">PRN Number</span>
+              <span class="result-value" id="resPrn">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Department</span>
+              <span class="result-value" id="resDepartment">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Semester</span>
+              <span class="result-value" id="resSemester">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Subject</span>
+              <span class="result-value" id="resSubject">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Faculty</span>
+              <span class="result-value" id="resFaculty">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Examination Type</span>
+              <span class="result-value" id="resExamType">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Academic Year</span>
+              <span class="result-value" id="resAcademicYear">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Email</span>
+              <span class="result-value" id="resEmail">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Mobile</span>
+              <span class="result-value" id="resMobile">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Marks Obtained</span>
+              <span class="result-value" id="resMarks">-</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Percentage</span>
+              <span class="result-value" id="resPercentage">-</span>
+            </div>
+          </div>
+
+          <div class="grade-highlight">
+            <div class="grade-block">
+              <span class="grade-label">Grade</span>
+              <span class="grade-value" id="resGrade">-</span>
+            </div>
+            <div class="grade-block">
+              <span class="grade-label">Grade Point</span>
+              <span class="grade-value" id="resGpa">-</span>
+            </div>
+            <div class="grade-block">
+              <span class="grade-label">Status</span>
+              <span class="grade-value" id="resStatus">-</span>
+            </div>
+          </div>
+
+          <div class="remark-strip">
+            <span class="result-label">Remark</span>
+            <span class="result-value" id="resRemark">-</span>
+          </div>
+
+        </div>
+      </div>
+      <!-- Printable area ends here -->
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="printBtn">Print Result</button>
+        <button class="btn btn-secondary" id="closeBtn">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <p class="footer-title">Symbiosis Institute of Technology</p>
+    <p class="footer-subtitle">Student Academic Evaluation Portal</p>
+    <p class="footer-power">Powered by SIT Nagpur ERP</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
