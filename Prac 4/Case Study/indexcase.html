@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration Validator</title>
+    <link rel="stylesheet" href="stylecase.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        🚗
+    </div>
+
+    <h1>Vehicle Registration Validator</h1>
+    <p class="subtitle">
+        Enter a vehicle registration number to verify its format.
+    </p>
+
+    <div class="input-group">
+        <label>Registration Number</label>
+        <input
+            type="text"
+            id="regNumber"
+            placeholder="Example: MH31AB1234"
+            autocomplete="off"
+        >
+    </div>
+
+    <button onclick="validateRegistration()">
+        Validate Registration
+    </button>
+
+    <p id="result"></p>
+
+    <div class="footer">
+        <span>Secure Validation</span>
+        <span>•</span>
+        <span>Fast Processing</span>
+    </div>
+
+</div>
+
+<script src="scriptcase.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+/* =====================================
+   PASSWORD VALIDATION LOGIN PAGE
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+LOGIN PAGE
+=========================== */
+
+.container{
+
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.login-box{
+
+    width:420px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    color:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    animation:fadeIn .8s;
+
+}
+
+.login-box h1{
+
+    text-align:center;
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+    color:#dbeafe;
+    margin-bottom:30px;
+
+}
+
+/* ===========================
+INPUTS
+=========================== */
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus{
+
+    box-shadow:0 0 12px #38bdf8;
+
+}
+
+/* ===========================
+PASSWORD VALIDATION
+=========================== */
+
+.validation{
+
+    margin-top:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+}
+
+#tick{
+
+    font-size:24px;
+
+}
+
+.success{
+
+    color:#22c55e;
+
+}
+
+.error{
+
+    color:#ef4444;
+
+}
+
+/* ===========================
+BUTTON
+=========================== */
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#16a34a;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+HOME PAGE
+=========================== */
+
+.home-page{
+
+    display:none;
+
+    width:100%;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.home-box{
+
+    width:500px;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+}
+
+.home-box h1{
+
+    color:#16a34a;
+
+    margin-bottom:15px;
+
+}
+
+.home-box p{
+
+    margin:10px 0;
+
+    color:#555;
+
+}
+
+/* ===========================
+POPUP
+=========================== */
+
+.popup{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.5);
+
+}
+
+.popup-box{
+
+    width:350px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    animation:zoom .3s;
+
+}
+
+.popup-box h2{
+
+    color:#ef4444;
+
+    margin-bottom:15px;
+
+}
+
+.popup-box p{
+
+    color:#555;
+
+    margin-bottom:20px;
+
+}
+
+.popup-box button{
+
+    background:#2563eb;
+
+}
+
+.popup-box button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===========================
+ANIMATIONS
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes zoom{
+
+    from{
+
+        opacity:0;
+        transform:scale(.7);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:600px){
+
+.login-box{
+
+    width:90%;
+    padding:30px;
+
+}
+
+.home-box{
+
+    width:90%;
+    padding:30px;
+
+}
+
+.popup-box{
+
+    width:90%;
+
+}
+
+}

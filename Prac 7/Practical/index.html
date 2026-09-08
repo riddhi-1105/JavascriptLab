@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wine-deep: #4a0e1f;
+            --wine: #8c2542;
+            --wine-light: #c65a72;
+            --rose-gold: #d9a066;
+            --text: #1c1214;
+            --text-soft: #8c6f76;
+            --card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text);
+            background: linear-gradient(155deg, #1a0509 0%, var(--wine-deep) 40%, var(--wine) 75%, var(--wine-light) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(160deg, #ffffff 0%, #fdf4f6 100%);
+            border-radius: 24px;
+            padding: 18px 18px 14px;
+            box-shadow:
+                0 0 0 1px rgba(198, 90, 114, 0.15),
+                0 18px 36px -14px rgba(74, 14, 31, 0.35);
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 0 2px;
+            text-align: center;
+            color: #141014;
+        }
+
+        .sub {
+            text-align: center;
+            font-size: 10.5px;
+            color: var(--text-soft);
+            font-weight: 600;
+            margin: 0 0 12px;
+        }
+
+        .add-row {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        #taskInput {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1.5px solid #f0d9df;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text);
+            background: #fffbfc;
+            outline: none;
+            min-width: 0;
+            transition: border-color 0.15s ease;
+        }
+
+        #taskInput::placeholder {
+            color: #c7a7ae;
+        }
+
+        #taskInput:focus {
+            border-color: var(--wine-light);
+        }
+
+        #addBtn {
+            border: none;
+            border-radius: 10px;
+            padding: 0 14px;
+            background: linear-gradient(135deg, var(--wine), var(--rose-gold));
+            color: #1a0f10;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: transform 0.1s ease, opacity 0.15s ease;
+        }
+
+        #addBtn:hover {
+            opacity: 0.9;
+        }
+
+        #addBtn:active {
+            transform: scale(0.94);
+        }
+
+        #taskList {
+            list-style: none;
+            margin: 12px 0 0;
+            padding: 0 2px 0 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        #taskList::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #taskList::-webkit-scrollbar-thumb {
+            background: var(--wine);
+            border-radius: 10px;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #fdeef3;
+            border: 1px solid #f5dbe3;
+            border-radius: 12px;
+            padding: 7px 6px 7px 10px;
+            margin-bottom: 6px;
+            animation: pop 0.18s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.92);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        li span {
+            flex: 1;
+            text-align: left;
+            font-size: 11.5px;
+            font-weight: 600;
+            word-break: break-word;
+            color: var(--text);
+        }
+
+        li button {
+            border: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            font-size: 10px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: transform 0.1s ease;
+        }
+
+        li button:active {
+            transform: scale(0.88);
+        }
+
+        .edit {
+            background: var(--rose-gold);
+            color: #1a0f10;
+        }
+
+        .delete {
+            background: var(--wine);
+            color: #ffffff;
+        }
+
+        .empty {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-soft);
+            font-weight: 600;
+            padding: 14px 4px 2px;
+        }
+
+        .empty span {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My To Do List</h1>
+        <p class="sub">little tasks, big vibes</p>
+
+        <div class="add-row">
+            <input type="text" id="taskInput" placeholder="Add a task...">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+        <div class="empty" id="emptyState">
+            <span>✨</span>
+            All clear for now!
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById("taskInput");
+        let addBtn = document.getElementById("addBtn");
+        let taskList = document.getElementById("taskList");
+        let emptyState = document.getElementById("emptyState");
+
+        function updateEmptyState() {
+            let items = taskList.querySelectorAll("li");
+            emptyState.style.display = items.length === 0 ? "block" : "none";
+        }
+
+        addBtn.addEventListener("click", function () {
+            let task = input.value.trim();
+            if (task === "") {
+                alert("Enter a task");
+                return;
+            }
+
+            let li = document.createElement("li");
+            let span = document.createElement("span");
+            let editBtn = document.createElement("button");
+            let deleteBtn = document.createElement("button");
+
+            span.innerText = task;
+            editBtn.innerText = "✎";
+            editBtn.className = "edit";
+            deleteBtn.innerText = "✕";
+            deleteBtn.className = "delete";
+
+            editBtn.addEventListener("click", function () {
+                let newTask = prompt("Edit task:", span.innerText);
+                if (newTask != null && newTask.trim() != "") {
+                    span.innerText = newTask.trim();
+                }
+            });
+
+            deleteBtn.addEventListener("click", function () {
+                li.remove();
+                updateEmptyState();
+            });
+
+            li.appendChild(span);
+            li.appendChild(editBtn);
+            li.appendChild(deleteBtn);
+
+            // Add li to ul
+            taskList.appendChild(li);
+            updateEmptyState();
+
+            // Clear input
+            input.value = "";
+            input.focus();
+        });
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                addBtn.click();
+            }
+        });
+
+        updateEmptyState();
+    </script>
+</body>
+
+</html>

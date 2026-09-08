@@ -1,0 +1,326 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F5F7FA;
+    color:#2D3436;
+    padding:40px;
+}
+
+/* Main Container */
+
+.container{
+
+    width:1150px;
+    margin:auto;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* Header */
+
+.header{
+
+    background:#2C3E50;
+    color:white;
+    text-align:center;
+    padding:30px;
+
+}
+
+.header h1{
+
+    font-size:34px;
+    font-weight:600;
+}
+
+.header p{
+
+    margin-top:8px;
+    color:#d5d8dc;
+
+}
+
+/* Form */
+
+.form-box{
+
+    display:flex;
+    gap:20px;
+    align-items:end;
+    padding:30px;
+    background:#fbfbfb;
+    border-bottom:1px solid #eee;
+
+}
+
+.input-group{
+
+    flex:1;
+
+}
+
+.input-group label{
+
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+
+}
+
+input,
+select{
+
+    width:100%;
+    padding:12px;
+    border:1px solid #DDE3EA;
+    border-radius:8px;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+    border-color:#16A085;
+
+}
+
+button{
+
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:600;
+
+}
+
+.input-group button{
+
+    width:100%;
+    padding:13px;
+    background:#16A085;
+    color:white;
+
+}
+
+.input-group button:hover{
+
+    background:#13856d;
+
+}
+
+/* Table */
+
+.table-box{
+
+    padding:30px;
+
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2C3E50;
+    color:white;
+
+}
+
+th{
+
+    padding:15px;
+
+}
+
+td{
+
+    padding:14px;
+    border-bottom:1px solid #ececec;
+    text-align:center;
+
+}
+
+tbody tr:hover{
+
+    background:#f7f9fb;
+
+}
+
+/* Cards */
+
+.cards{
+
+    display:flex;
+    gap:25px;
+    padding:0 30px 30px;
+
+}
+
+.card{
+
+    flex:1;
+    background:white;
+    border:1px solid #E5E7EB;
+    border-radius:10px;
+    padding:22px;
+
+}
+
+.card h2{
+
+    margin-bottom:15px;
+    color:#2C3E50;
+
+}
+
+.card ul{
+
+    list-style:none;
+
+}
+
+.card li{
+
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+
+}
+
+/* Bill */
+
+.bill{
+
+    margin:0 30px 30px;
+    background:#2C3E50;
+    color:white;
+    border-radius:12px;
+    padding:25px;
+
+}
+
+.bill h2{
+
+    text-align:center;
+    margin-bottom:20px;
+
+}
+
+.bill p{
+
+    padding:8px 0;
+
+}
+
+.bill hr{
+
+    border:none;
+    height:1px;
+    background:rgba(255,255,255,.2);
+    margin:18px 0;
+
+}
+
+/* Buttons */
+
+.bottom-buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding-bottom:35px;
+
+}
+
+.calculate-btn{
+
+    background:#16A085;
+    color:white;
+    padding:14px 30px;
+
+}
+
+.calculate-btn:hover{
+
+    background:#13856d;
+
+}
+
+.clear-btn{
+
+    background:#E74C3C;
+    color:white;
+    padding:14px 30px;
+
+}
+
+.clear-btn:hover{
+
+    background:#c0392b;
+
+}
+
+/* Remove Button */
+
+.remove-btn{
+
+    background:#E74C3C;
+    color:white;
+    padding:8px 15px;
+    border-radius:6px;
+
+}
+
+.remove-btn:hover{
+
+    background:#c0392b;
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.form-box{
+
+    flex-direction:column;
+
+}
+
+.cards{
+
+    flex-direction:column;
+
+}
+
+.bottom-buttons{
+
+    flex-direction:column;
+
+}
+
+.container{
+
+    width:100%;
+
+}
+
+}
